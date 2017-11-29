@@ -1,24 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Georgia.ttf">
+            <string>Georgia</string>
+        </array>
+        <array key="Verdana.ttf">
+            <string>Verdana</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="multiples" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chalkboard" translatesAutoresizingMaskIntoConstraints="NO" id="Rtq-9a-yUB" userLabel="bkgndImg">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MULTIPLES" translatesAutoresizingMaskIntoConstraints="NO" id="WGW-ou-wws" userLabel="gameLogo">
+                                <rect key="frame" x="29" y="43" width="313" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="ohS-zw-IuM"/>
+                                </constraints>
+                            </imageView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rf4-KL-yjv" userLabel="resultLabel">
+                                <rect key="frame" x="90" y="255" width="194" height="21"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z32-EI-lsX" userLabel="addBtn">
+                                <rect key="frame" x="69" y="474" width="211" height="101"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="101" id="9CZ-Q1-LrS"/>
+                                </constraints>
+                                <state key="normal" image="add"/>
+                                <connections>
+                                    <action selector="addMultipleValuesWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DCo-5w-b5N"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6an-iu-uTf" userLabel="playBtn">
+                                <rect key="frame" x="87" y="452" width="182" height="144"/>
+                                <state key="normal" image="play"/>
+                                <connections>
+                                    <action selector="onPlayButtonWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cga-Bf-qv5"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter a number!" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="ys3-ZC-Cb3" userLabel="numMultiplesTxtFld">
+                                <rect key="frame" x="69" y="386" width="237" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration" hint="How many multiples?">
+                                    <accessibilityTraits key="traits" none="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ys3-ZC-Cb3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="69" id="1Am-5d-uHZ"/>
+                            <constraint firstItem="WGW-ou-wws" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="23" id="31H-Rn-jo0"/>
+                            <constraint firstItem="Rtq-9a-yUB" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="4IW-td-n5Y"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6an-iu-uTf" secondAttribute="bottom" constant="71" id="4u6-LE-nX8"/>
+                            <constraint firstItem="rf4-KL-yjv" firstAttribute="centerX" secondItem="ys3-ZC-Cb3" secondAttribute="centerX" id="7NN-Ej-C5n"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WGW-ou-wws" secondAttribute="trailing" constant="33" id="DxZ-if-LW7"/>
+                            <constraint firstItem="6an-iu-uTf" firstAttribute="top" secondItem="ys3-ZC-Cb3" secondAttribute="bottom" constant="36" id="HtT-oT-U2q"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6an-iu-uTf" secondAttribute="trailing" constant="106" id="Igw-dA-oZ6"/>
+                            <constraint firstItem="z32-EI-lsX" firstAttribute="top" secondItem="ys3-ZC-Cb3" secondAttribute="bottom" constant="58" id="JZg-BP-9Ty"/>
+                            <constraint firstItem="Rtq-9a-yUB" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="KUx-DV-Ts3"/>
+                            <constraint firstItem="Rtq-9a-yUB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Lle-yA-eGh"/>
+                            <constraint firstItem="rf4-KL-yjv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="90" id="ONU-X7-xGh"/>
+                            <constraint firstItem="z32-EI-lsX" firstAttribute="centerY" secondItem="6an-iu-uTf" secondAttribute="centerY" id="P7N-D0-Fwl"/>
+                            <constraint firstItem="WGW-ou-wws" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="29" id="QbS-q9-b7R"/>
+                            <constraint firstItem="6an-iu-uTf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="Sb4-9f-1OQ"/>
+                            <constraint firstItem="rf4-KL-yjv" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="255" id="mcg-MW-1mW"/>
+                            <constraint firstItem="Rtq-9a-yUB" firstAttribute="centerX" secondItem="rf4-KL-yjv" secondAttribute="centerX" id="ogC-9O-oP7"/>
+                            <constraint firstAttribute="trailing" secondItem="Rtq-9a-yUB" secondAttribute="trailing" id="r7s-ua-ZUt"/>
+                            <constraint firstItem="ys3-ZC-Cb3" firstAttribute="leading" secondItem="z32-EI-lsX" secondAttribute="leading" id="yDb-5Q-Efr"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="addBtn" destination="z32-EI-lsX" id="Ohu-Ml-6Hc"/>
+                        <outlet property="bkgndImg" destination="Rtq-9a-yUB" id="btp-aI-art"/>
+                        <outlet property="gameLogo" destination="WGW-ou-wws" id="Ovq-IK-Viz"/>
+                        <outlet property="numMultiplesTxtFld" destination="ys3-ZC-Cb3" id="VMC-aA-ykQ"/>
+                        <outlet property="playBtn" destination="6an-iu-uTf" id="s3V-IP-NWG"/>
+                        <outlet property="resultLabel" destination="rf4-KL-yjv" id="hxa-Jv-V2q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="117.39130434782609"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="MULTIPLES" width="533" height="124"/>
+        <image name="add" width="211" height="101"/>
+        <image name="chalkboard" width="801" height="750"/>
+        <image name="play" width="272" height="268"/>
+    </resources>
 </document>
